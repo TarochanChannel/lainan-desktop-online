@@ -7,7 +7,7 @@ grade: devel
 confinement: devmode
 
 apps:
-  electronApp:
+  lainan-desktop-online:
     plugs:
       - browser-support
       - desktop
@@ -23,7 +23,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 
 parts:
-  electronApp:
+  lainan-desktop-online:
     source: .
     plugin: dump
     stage-packages:
