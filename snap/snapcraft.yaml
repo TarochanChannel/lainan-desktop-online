@@ -1,7 +1,10 @@
 name: lainan-desktop-online
-base: core18
+summary: App summary
 version: "0.0.1"
 description: "LainanDesktop Online is LaianDesktop Edition(Online)."
+
+grade: devel
+confinement: devmode
 
 apps:
   electronApp:
