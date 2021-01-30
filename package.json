@@ -1,0 +1,21 @@
+{
+  "name": "lainan-desktop-online",
+  "version": "0.0.1",
+  "description": "LainanDesktop Online is LaianDesktop Edition(Online).",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux snap"
+  },
+  "build": {
+    "productName": "LainanDesktop",
+    "icon": "icon/lainan_icon.png",
+    "copyright": "(c) 2021 MonHu"
+  },
+  "author": "MonHu",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^11.2.1",
+    "electron-builder": "^22.9.1"
+  }
+}
