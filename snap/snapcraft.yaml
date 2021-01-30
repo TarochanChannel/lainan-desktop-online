@@ -1,0 +1,4 @@
+name: lainan-desktop-online
+base: core18
+version: '0.0.1'
+description: "LainanDesktop Online is LaianDesktop Edition(Online)."
