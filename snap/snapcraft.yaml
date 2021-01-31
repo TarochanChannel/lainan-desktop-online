@@ -33,7 +33,7 @@ parts:
     plugin: nil
     source: https://github.com/TarochanChannel/lainan-desktop-online.git
     override-build: |
-        npm install electron electron-builder
+        npm install electron-builder
         npx electron-builder --linux --x64 --ia32 --armv7l --arm64
         cp -rv ./dist/linux-* $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
     build-snaps:
