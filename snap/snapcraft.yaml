@@ -1,0 +1,45 @@
+name: lainan-desktop-online # you probably want to 'snapcraft register <name>'
+base: core18 # the base snap is the execution environment for this snap
+version: '0.0.12' # just for humans, typically '1.2+git' or '1.3.2'
+summary: LainanDesktop Online # 79 char long summary
+description: |
+  _LainanDesktop Online_
+  
+  LainanのDesktop版がついにリリース！
+  
+  Linux版は、SnapStoreで。
+  Windows版は、公式サイトにて配布予定。
+  
+  ぜひ、毎日お使いくださいね！
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+apps:
+  electron-packager-hello-world:
+    command: electron-quick-start/electron-quick-start --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - browser-support
+    - network
+    - network-bind
+    environment:
+      # Chromium フレームワーク/Electron の TMPDIR パスを修正し、
+      # libappindicator が読めるリソースを確保します。
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  lainan-desktop-online:
+    plugin: nil
+    source: https://github.com/TarochanChannel/lainan-desktop-online.git
+    override-build: |
+        npm install electron electron-builder
+        npx electron-builder --linux --x64 --ia32 --armv7l --arm64
+        cp -rv ./dist/linux-* $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
