@@ -19,15 +19,12 @@ confinement: strict
 
 apps:
   electron-packager-hello-world:
-    command: bin/desktop-launch $SNAP/app/lainan-desktop-online
+    command: lainan-desktop-online/lainan-desktop-online --no-sandbox
     extensions: [gnome-3-34]
     plugs:
-      - home
-      - desktop
-      - desktop-legacy
-      - browser-support
-      - network
-      - network-bind
+    - browser-support
+    - network
+    - network-bind
     environment:
       # Chromium フレームワーク/Electron の TMPDIR パスを修正し、
       # libappindicator が読めるリソースを確保します。
