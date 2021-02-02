@@ -16,9 +16,9 @@
   },
   "author": "MonHu",
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "electron": "^11.2.1",
     "electron-packager": "^15.2.0"
-  },
-  "dependencies": {}
+  }
 }
