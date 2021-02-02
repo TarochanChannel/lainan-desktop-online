@@ -35,7 +35,7 @@ parts:
     plugin: nil
     source: app/
     override-build: |
-      sudo npm install electron electron-packager -g
+      npm install electron electron-packager
       npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
       cp -rv ./lainan-desktop-online-linux-* $SNAPCRAFT_PART_INSTALL/app/
     build-snaps:
