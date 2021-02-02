@@ -11,7 +11,7 @@ description: |
   Windows版は、公式サイトにて配布予定。
 
   ぜひ、毎日お使いくださいね！
-
+icon: "/icon/lainan_icon.svg"
 grade: stable
 confinement: strict
 
