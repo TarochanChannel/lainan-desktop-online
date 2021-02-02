@@ -1,6 +1,6 @@
 name: lainan-desktop-online
 base: core18
-version: "0.0.13+git"
+version: "0.0.14+git"
 summary: LainanDesktop Online
 description: |
   _LainanDesktop Online_
@@ -11,7 +11,7 @@ description: |
   Windows版は、公式サイトにて配布予定。
 
   ぜひ、毎日お使いくださいね！
-icon: "/icon/lainan_icon.svg"
+icon: "app/icon/lainan_icon.svg"
 grade: stable
 confinement: strict
 
@@ -34,7 +34,7 @@ apps:
 parts:
   lainan-desktop-online:
     plugin: nil
-    source: https://github.com/TarochanChannel/lainan-desktop-online.git
+    source: app/
     build: |
       npm install electron electron-packager
       npx electron-packager . --platform=linux
