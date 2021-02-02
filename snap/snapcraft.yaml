@@ -1,6 +1,8 @@
 name: lainan-desktop-online
+title: "Lainan Desktop"
 base: core18
 version: "0.0.14+git"
+license: "MIT"
 summary: LainanDesktop Online
 description: |
   _LainanDesktop Online_
@@ -36,7 +38,7 @@ parts:
     plugin: nil
     source: app/
     override-build: |
-      npm install electron electron-packager
+      sudo npm install electron electron-packager -g
       npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
       cp -rv ./lainan-desktop-online-linux-* $SNAPCRAFT_PART_INSTALL/app/
     build-snaps:
