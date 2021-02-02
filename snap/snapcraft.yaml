@@ -17,7 +17,7 @@ confinement: strict
 
 apps:
   electron-packager-hello-world:
-    command: lainan-desktop-online/lainan-desktop-online --no-sandbox
+    command: bin/desktop-launch $SNAP/app/lainan-desktop-online
     extensions: [gnome-3-34]
     plugs:
       - home
@@ -35,10 +35,13 @@ parts:
   lainan-desktop-online:
     plugin: nil
     source: https://github.com/TarochanChannel/lainan-desktop-online.git
-    override-build: |
+    build: |
       npm install electron electron-packager
-      npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
-      cp -rv ./lainan-desktop-online-linux-* $SNAPCRAFT_PART_INSTALL/app
+      npx electron-packager . --platform=linux
+    install: |
+      mkdir $SNAPCRAFT_PART_INSTALL/app
+      cd release-builds/*/
+      mv * $SNAPCRAFT_PART_INSTALL/app
     build-snaps:
       - node/14/stable
     build-packages:
