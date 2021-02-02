@@ -1,6 +1,6 @@
 {
   "name": "lainan-desktop-online",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "LainanDesktop Online is LaianDesktop Edition(Online).",
   "main": "main.js",
   "scripts": {

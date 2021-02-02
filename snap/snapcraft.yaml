@@ -1,6 +1,6 @@
 name: lainan-desktop-online
 base: core18
-version: '0.0.13+git'
+version: '0.0.14+git'
 summary: LainanDesktop Online
 description: |
   _LainanDesktop Online_
