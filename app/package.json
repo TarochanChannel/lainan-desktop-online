@@ -4,7 +4,8 @@
   "description": "LainanDesktop Online is LaianDesktop Edition(Online).",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir"
   },
   "build": {
     "productName": "LainanDesktop",
@@ -19,7 +20,7 @@
   "repository": "https://github.com/TarochanChannel/lainan-desktop-online.git",
   "devDependencies": {
     "electron": "^11.2.1",
-    "electron-packager": "^15.2.0"
+    "electron-builder": "^22.9.1"
   },
   "dependencies": {}
 }
