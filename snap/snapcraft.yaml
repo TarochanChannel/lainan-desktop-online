@@ -17,26 +17,6 @@ icon: "app/icon/lainan_icon.svg"
 grade: stable
 confinement: strict
 
-parts:
-  lainan-desktop-online:
-    plugin: nil
-    source: app/
-    build-snaps:
-      - node/14/stable
-    build-packages:
-    - unzip
-    stage-packages:
-      - libnss3
-      - libnspr4
-    build: |
-      export ELECTRON_GET_USE_PROXY=1
-      export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
-      export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
-      npm run pack
-    install: |
-      mkdir $SNAPCRAFT_PART_INSTALL/app
-      cd release-builds/*/
-      mv * $SNAPCRAFT_PART_INSTALL/app
 apps:
   lainan-desktop-online:
     command: bin/desktop-launch $SNAP/app/lainan-desktop-online
@@ -47,3 +27,24 @@ apps:
     - network-bind
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  electron-quick-start:
+    plugin: nil
+    source: app/
+    override-build: |
+        npm install electron electron-builder
+        export ELECTRON_GET_USE_PROXY=1
+        export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
+        export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
+        npm run pack
+        mkdir $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
+        cd release-builds/*/
+        mv * $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
