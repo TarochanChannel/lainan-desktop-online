@@ -17,31 +17,33 @@ icon: "app/icon/lainan_icon.svg"
 grade: stable
 confinement: strict
 
-apps:
-  electron-packager-hello-world:
-    command: lainan-desktop-online/lainan-desktop-online --no-sandbox
-    extensions: [gnome-3-34]
-    plugs:
-    - browser-support
-    - network
-    - network-bind
-    environment:
-      # Chromium フレームワーク/Electron の TMPDIR パスを修正し、
-      # libappindicator が読めるリソースを確保します。
-      TMPDIR: $XDG_RUNTIME_DIR
-
 parts:
   lainan-desktop-online:
     plugin: nil
-    source: app/
-    override-build: |
-      npm install electron-packager
-      npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
-      cp -rv ./lainan-desktop-online-linux-* $SNAPCRAFT_PART_INSTALL/app/
-    build-snaps:
-      - node/14/stable
     build-packages:
       - unzip
+  electron-app:
+    plugin: nil
+    source: app/
+    build-snaps:
+      - node/14/stable
     stage-packages:
       - libnss3
       - libnspr4
+    build: npm run pack
+    install: |
+      mkdir $SNAPCRAFT_PART_INSTALL/app
+      cd release-builds/*/
+      mv * $SNAPCRAFT_PART_INSTALL/app
+apps:
+  lainan-desktop-online:
+    command: bin/desktop-launch $SNAP/app/lainan-desktop-online
+    extensions: [gnome-3-34]
+    plugs:
+      - home
+      - desktop
+      - browser-support
+      - network
+      - network-bind
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR
