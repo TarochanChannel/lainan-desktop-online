@@ -29,7 +29,9 @@ parts:
       - libnss3
       - libnspr4
     build: |
-      npm run setpr
+      export ELECTRON_GET_USE_PROXY=1
+      export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
+      export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
       npm run pack
     install: |
       mkdir $SNAPCRAFT_PART_INSTALL/app

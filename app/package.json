@@ -6,7 +6,6 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "setpr": "export ELECTRON_GET_USE_PROXY=1\nexport GLOBAL_AGENT_HTTP_PROXY=\"${http_proxy}\"\nexport GLOBAL_AGENT_HTTPS_PROXY=\"${http_proxy}\""
   },
   "build": {
     "productName": "LainanDesktop",
