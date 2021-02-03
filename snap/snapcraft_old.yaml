@@ -1,0 +1,53 @@
+name: lainan-desktop-online
+title: "Lainan Desktop"
+base: core18
+version: "0.0.14+git"
+license: "MIT"
+summary: LainanDesktop Online
+description: |
+  _LainanDesktop Online_
+
+  LainanのDesktop版がついにリリース！
+
+  Linux版は、SnapStoreで。
+  Windows版は、公式サイトにて配布予定。
+
+  ぜひ、毎日お使いくださいね！
+icon: "app/icon/lainan_icon.svg"
+grade: stable
+confinement: strict
+
+parts:
+  lainan-desktop-online:
+    plugin: nil
+    source: app/
+    build-snaps:
+      - node/14/stable
+    stage-packages:
+      - libnss3
+      - libnspr4
+    override-build: |
+      if [ -n "$http_proxy" ]; then
+        export ELECTRON_GET_USE_PROXY=1
+        export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
+        export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
+      fi
+      npm install electron electron-builder
+    build: |
+      npm run pack
+    install: |
+      mkdir $SNAPCRAFT_PART_INSTALL/app
+      cd release-builds/*/
+      mv * $SNAPCRAFT_PART_INSTALL/app
+apps:
+  lainan-desktop-online:
+    command: bin/desktop-launch $SNAP/app/lainan-desktop-online
+    extensions: [gnome-3-34]
+    plugs:
+      - home
+      - desktop
+      - browser-support
+      - network
+      - network-bind
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR
