@@ -28,6 +28,7 @@ parts:
       - libnspr4
     override-build: |
       npm config set proxy $HTTP_PROXY
+      npm config set registry http://registry.npmjs.org/
       npm install electron electron-packager
     build: |
       npm run pack
