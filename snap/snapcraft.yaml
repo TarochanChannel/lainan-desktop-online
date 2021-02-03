@@ -41,8 +41,8 @@ parts:
         mkdir $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
         cd release-builds/*/
         mv * $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
-    build-snaps:
-    - node/14.15.4
+    build-packages:
+    - node/14/stable
     build-packages:
     - unzip
     stage-packages:
