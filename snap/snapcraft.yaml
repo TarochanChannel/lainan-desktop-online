@@ -18,10 +18,6 @@ grade: stable
 confinement: strict
 
 parts:
-  lainan-desktop-online:
-    plugin: nil
-    build-packages:
-      - unzip
   electron-app:
     plugin: nil
     source: app/
@@ -30,7 +26,11 @@ parts:
     stage-packages:
       - libnss3
       - libnspr4
-    build: npm run pack
+    override-build: |
+      npm config set proxy $HTTP_PROXY
+      npm install electron electron-packager
+    build: |
+      npm run pack
     install: |
       mkdir $SNAPCRAFT_PART_INSTALL/app
       cd release-builds/*/
