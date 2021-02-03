@@ -42,7 +42,7 @@ parts:
         cd release-builds/*/
         mv * $SNAPCRAFT_PART_INSTALL/lainan-desktop-online
     build-snaps:
-    - node/14/stable
+    - node/14.15.4
     build-packages:
     - unzip
     stage-packages:
