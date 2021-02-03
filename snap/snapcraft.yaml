@@ -23,6 +23,8 @@ parts:
     source: app/
     build-snaps:
       - node/14/stable
+    build-packages:
+    - unzip
     stage-packages:
       - libnss3
       - libnspr4
@@ -38,10 +40,8 @@ apps:
     command: bin/desktop-launch $SNAP/app/lainan-desktop-online
     extensions: [gnome-3-34]
     plugs:
-      - home
-      - desktop
-      - browser-support
-      - network
-      - network-bind
+    - browser-support
+    - network
+    - network-bind
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
