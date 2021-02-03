@@ -18,7 +18,7 @@ grade: stable
 confinement: strict
 
 parts:
-  electron-app:
+  lainan-desktop-online:
     plugin: nil
     source: app/
     build-snaps:
