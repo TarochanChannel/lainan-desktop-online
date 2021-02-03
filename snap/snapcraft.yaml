@@ -17,83 +17,31 @@ icon: "app/icon/lainan_icon.svg"
 grade: stable
 confinement: strict
 
-plugs:
-  gnome-3-26-1604:
-    interface: content
-    target: $SNAP/gnome-platform
-    default-provider: gnome-3-26-1604
-  gtk-3-themes:
-    interface: content
-    target: $SNAP/data-dir/themes
-    default-provider: gtk-common-themes
-  icon-themes:
-    interface: content
-    target: $SNAP/data-dir/icons
-    default-provider: gtk-common-themes
-  sound-themes:
-    interface: content
-    target: $SNAP/data-dir/sounds
-    default-provider: gtk-common-themes
 parts:
-  gnome:
+  lainan-desktop-online:
     plugin: nil
-    build-packages:
-      - software-properties-common
-    override-pull: |
-      add-apt-repository -y ppa:ubuntu-desktop/gnome-3-26
-      apt -y update
-  electron-app:
-    after:
-      - gnome
-      - desktop-gnome-platform
-    plugin: nodejs
     source: app/
-    node-engine: 9.11.1
+    build-snaps:
+      - node/14/stable
     stage-packages:
-      - fcitx-frontend-gtk3
-      - gvfs-libs
-      - libasound2
-      - libgconf-2-4
-      - libglib2.0-bin
-      - libgnome-keyring0
-      - libgtk-3-0
-      - libnotify4
-      - libnspr4
       - libnss3
-      - libpcre3
-      - libpulse0
-      - libsecret-1-0
-      - libxss1
-      - libxtst6
-      - zlib1g
-    build: npm run pack
+      - libnspr4
+    build: |
+      npm run setpr
+      npm run pack
     install: |
       mkdir $SNAPCRAFT_PART_INSTALL/app
       cd release-builds/*/
       mv * $SNAPCRAFT_PART_INSTALL/app
-    stage:
-      - -lib/node_modules/*
-      - -usr/share/doc/*
-      - -usr/share/man/*
-      - -share/man/*
-      - -share/doc/*
-      - -CHANGELOG.md
-      - -README.md
 apps:
   lainan-desktop-online:
     command: bin/desktop-launch $SNAP/app/lainan-desktop-online
+    extensions: [gnome-3-34]
     plugs:
       - home
       - desktop
-      - desktop-legacy
-      - x11
-      - unity7
-      - wayland
       - browser-support
       - network
-      - gsettings
-      - pulseaudio
-      - opengl
+      - network-bind
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
-      DISABLE_WAYLAND: 1
