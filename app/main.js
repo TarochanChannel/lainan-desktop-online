@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu, Notification, nativeImage } = require('electron');
+const isOnline = require('is-online');
 
-function createWindow() {
+async function createWindow() {
     const win = new BrowserWindow({
         title: "LainanDesktop Online",
         icon: "icon/lainan_icon.png",
@@ -11,8 +12,13 @@ function createWindow() {
         backgroundColor: "#2196f3",
         autoHideMenuBar: true
     });
+    var online_check = await isOnline({"timeout": 3000});
 
-    win.loadURL("https://lainan.one/app/");
+    if (online_check) {
+        win.loadURL("https://app.lainan.one/");
+    } else {
+        win.loadFile("offline/index.html");
+    }
     win.setMenu(new Menu.buildFromTemplate([
         {
             role: "help",

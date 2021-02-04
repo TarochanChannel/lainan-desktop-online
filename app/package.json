@@ -1,6 +1,6 @@
 {
   "name": "lainan-desktop-online",
-  "version": "0.0.14",
+  "version": "0.0.2",
   "description": "LainanDesktop Online is LaianDesktop Edition(Online).",
   "main": "main.js",
   "scripts": {
@@ -18,5 +18,7 @@
     "electron": "^11.2.1",
     "electron-packager": "15.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "is-online": "^9.0.0"
+  }
 }

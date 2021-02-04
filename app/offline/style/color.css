@@ -1,0 +1,121 @@
+/* Colors */
+.Red {
+    background: linear-gradient(to bottom right, #f44336, #e91e63) fixed;
+}
+.Red .btn {
+    background: #ff5252;
+}
+.Pink {
+    background: linear-gradient(to bottom right, #e91e63, #f44336) fixed;
+}
+.Pink .btn {
+    background: #ff4081;
+}
+.Purple {
+    background: linear-gradient(to bottom right, #9c27b0, #673ab7) fixed;
+}
+.Purple .btn {
+    background: #e040fb;
+}
+.Deep-purple {
+    background: linear-gradient(to bottom right, #673ab7, #9c27b0) fixed;
+}
+.Deep-purple .btn {
+    background: #7c4dff;
+}
+.Indigo {
+    background: linear-gradient(to bottom right, #3f51b5, #2196f3) fixed;
+}
+.Indigo .btn {
+    background: #536dfe;
+}
+.Blue {
+    background: linear-gradient(to bottom right, #2196f3, #3f51b5) fixed;
+}
+.Blue .btn {
+    background: #448aff;
+}
+.Light-blue {
+    background: linear-gradient(to bottom right, #03a9f4, #00bcd4) fixed;
+}
+.Light-blue .btn {
+    background: #40c4ff;
+}
+.Cyan {
+    background: linear-gradient(to bottom right, #00bcd4, #03a9f4) fixed;
+}
+.Cyan .btn {
+    background: #18ffff;
+}
+.Teal {
+    background: linear-gradient(to bottom right, #009688, #4caf50) fixed;
+}
+.Teal .btn {
+    background: #64ffda;
+}
+.Green {
+    background: linear-gradient(to bottom right, #4caf50, #009688) fixed;
+}
+.Green .btn {
+    background: #64ffda;
+}
+.Light-green {
+    background: linear-gradient(to bottom right, #8bc34a, #cddc39) fixed;
+}
+.Light-green .btn {
+    background: #b2ff59;
+}
+.Lime {
+    background: linear-gradient(to bottom right, #cddc39, #8bc34a) fixed;
+}
+.Lime .btn {
+    background: #eeff41;
+}
+.Yellow {
+    background: linear-gradient(to bottom right, #ffeb3b, #ffc107) fixed;
+}
+.Yellow .btn {
+    background: #ffff00;
+}
+.Amber {
+    background: linear-gradient(to bottom right, #ffc107, #ffeb3b) fixed;
+}
+.Amber .btn {
+    background: #ffd740;
+}
+.Orange {
+    background: linear-gradient(to bottom right, #ff9800, #ff5722) fixed;
+}
+.Orange .btn {
+    background: #ffab40;
+}
+.Deep-orange {
+    background: linear-gradient(to bottom right, #ff5722, #ff9800) fixed;
+}
+.Deep-orange .btn {
+    background: #ff6e40;
+}
+
+/* Themes */
+
+.light {
+    color: #263238;
+}
+.light .card-panel {
+    backdrop-filter: blur(6px);
+    background: #ffffffa0;
+}
+.dark {
+    color: #eceff1;
+}
+.dark .card-panel {
+    backdrop-filter: blur(6px);
+    background: #000000a0;
+}
+.glass {
+    color: #eceff1;
+}
+.glass .card-panel {
+    backdrop-filter: blur(4px);
+    background: #00a0ff16;
+}

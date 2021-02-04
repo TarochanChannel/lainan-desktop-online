@@ -1,7 +1,7 @@
 name: lainan-desktop-online
 title: "Lainan Desktop"
 base: core18
-version: "0.0.14"
+version: "0.0.2"
 license: "MIT"
 summary: LainanDesktop Online
 description: |
@@ -19,7 +19,8 @@ confinement: strict
 
 apps:
   lainan-desktop-online:
-    command: lainan-desktop-online/lainan-desktop-online
+    command: lainan-desktop-online/lainan-desktop-online --no-sandbox
+    desktop: usr/share/applications/lainan-desktop-online.desktop
     extensions: [gnome-3-34]
     plugs:
     - desktop
