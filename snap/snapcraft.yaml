@@ -20,7 +20,6 @@ confinement: strict
 apps:
   lainan-desktop-online:
     command: lainan-desktop-online/lainan-desktop-online --no-sandbox
-    desktop: gui/lainan-desktop-online.desktop
     extensions: [gnome-3-34]
     plugs:
     - desktop
