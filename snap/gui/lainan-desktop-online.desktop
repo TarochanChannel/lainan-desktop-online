@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=LainanDesktop
+Comment=LainanDesktop Online is LaianDesktop Edition(Online).
+Exec=lainan-desktop-online
+Icon=${SNAP}/icon/lainan_icon.svg
+Terminal=false
