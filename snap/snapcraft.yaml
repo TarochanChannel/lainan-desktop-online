@@ -1,7 +1,7 @@
 name: lainan-desktop-online
 title: "Lainan Desktop"
 base: core18
-version: "0.0.14+git"
+version: "0.0.14"
 license: "MIT"
 summary: LainanDesktop Online
 description: |
