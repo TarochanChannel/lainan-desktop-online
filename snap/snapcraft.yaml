@@ -22,9 +22,22 @@ apps:
     command: lainan-desktop-online/lainan-desktop-online
     extensions: [gnome-3-34]
     plugs:
+    - desktop
+    - desktop-legacy
+    - wayland
+    - unity7
+    - alsa
+    - avahi-observe
     - browser-support
+    - camera
+    - cups-control
+    - gsettings
+    - home
     - network
-    - network-bind
+    - opengl
+    - audio-playback
+    - screen-inhibit-control
+    - upower-observe
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 
