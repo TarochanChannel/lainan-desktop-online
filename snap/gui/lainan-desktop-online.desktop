@@ -4,5 +4,5 @@ Encoding=UTF-8
 Name=LainanDesktop
 Comment=LainanDesktop Online is LaianDesktop Edition(Online).
 Exec=lainan-desktop-online
-Icon=${SNAP}/meta/gui/icon/lainan_icon.svg
+Icon=${SNAP}/meta/gui/icon.png
 Terminal=false
